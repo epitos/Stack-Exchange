@@ -34,7 +34,7 @@ StackExchangeRepository: Handles data operations, such as getting the data from 
 **DI:**
 - Component: AppComponent: Provides the modules for dependency injection.
 
-**Module:*8
+**Module:**
 
 - AppModule: Provides the Context dependency.
 - NetworkModule: Provides the Retrofit, ApiService, OkHttpClient and NetworkHelper dependencies
