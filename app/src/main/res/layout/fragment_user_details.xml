@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/orange"
+        app:titleTextColor="@color/white"/>
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_0"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/user_detail_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/user_detail_reputation_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_img"
+                android:text="@string/reputation"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginEnd="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand_medium"
+                android:textColor="@color/orange"/>
+
+            <TextView
+                android:id="@+id/user_detail_reputation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/user_detail_reputation_label"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_img"
+                tools:text="Reputation"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginEnd="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/user_detail_top_tags_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_reputation_label"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="@string/top_tags"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginEnd="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand_medium"
+                android:textColor="@color/orange"/>
+
+            <FrameLayout
+                android:id="@+id/tag_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_100"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_top_tags_label">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/tags_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_100"
+                    app:layout_constraintTop_toBottomOf="@id/user_detail_top_tags_label"
+                    android:layout_marginStart="@dimen/margin_23"
+                    android:layout_marginEnd="@dimen/margin_23"/>
+
+                <ProgressBar
+                    android:id="@+id/tag_progress_bar"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="@color/orange"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/user_detail_badges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tag_layout"
+                android:text="@string/badges"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand_medium"
+                android:textColor="@color/orange"/>
+
+            <TextView
+                android:id="@+id/user_detail_badges_gold_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/user_detail_badges"
+                app:layout_constraintTop_toBottomOf="@id/tag_layout"
+                android:text="@string/gold"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand_medium"
+                android:textColor="@color/orange"/>
+
+            <TextView
+                android:id="@+id/user_detail_badges_gold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/user_detail_badges_gold_label"
+                app:layout_constraintTop_toBottomOf="@id/tag_layout"
+                tools:text="0"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/user_detail_badges_silver_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/user_detail_badges"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_badges_gold_label"
+                android:text="@string/silver"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand_medium"
+                android:textColor="@color/orange"/>
+
+            <TextView
+                android:id="@+id/user_detail_badges_silver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/user_detail_badges_silver_label"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_badges_gold_label"
+                tools:text="0"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/user_detail_badges_bronze_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/user_detail_badges"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_badges_silver_label"
+                android:text="@string/bronze"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand_medium"
+                android:textColor="@color/orange"/>
+
+            <TextView
+                android:id="@+id/user_detail_badges_bronze"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/user_detail_badges_bronze_label"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_badges_silver_label"
+                tools:text="0"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/user_detail_location_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_badges_bronze_label"
+                android:text="@string/location"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand_medium"
+                android:textColor="@color/orange"/>
+
+            <TextView
+                android:id="@+id/user_detail_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/user_detail_location_label"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_badges_bronze_label"
+                android:text="N/A"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/user_detail_creation_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_location_label"
+                android:text="@string/creation_date"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand_medium"
+                android:textColor="@color/orange"
+                android:paddingBottom="@dimen/padding_5"/>
+
+            <TextView
+                android:id="@+id/user_detail_creation_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/user_detail_creation_date_label"
+                app:layout_constraintTop_toBottomOf="@id/user_detail_location_label"
+                android:text="@string/creation_date"
+                android:layout_marginStart="@dimen/margin_23"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="@dimen/text_size_18"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/white"
+                android:paddingBottom="@dimen/padding_5"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
