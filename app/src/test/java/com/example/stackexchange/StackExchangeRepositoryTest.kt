@@ -46,10 +46,6 @@ class StackExchangeRepositoryTest {
 
         testCoroutineRule.runBlockingTest {
 
-            doReturn(UsersResponse()).`when`(apiService).getUsers(
-                Const.ORDER_BY_OPTION_ASC, Sort.NAME.sortType, name,
-                Const.SITE_NAME_STACKOVERFLOW)
-
             repository.getUsers(Const.ORDER_BY_OPTION_ASC, Sort.NAME.sortType, name,
                 Const.SITE_NAME_STACKOVERFLOW)
 
@@ -61,11 +57,7 @@ class StackExchangeRepositoryTest {
 
     @Test
     fun getTagsApiResponse() {
-
         testCoroutineRule.runBlockingTest {
-
-            doReturn(TagsResponse()).`when`(apiService).getTags(
-                Const.ORDER_BY_OPTION_ASC, Sort.POPULAR.sortType, Const.SITE_NAME_STACKOVERFLOW)
 
             repository.getTags(Const.ORDER_BY_OPTION_ASC, Sort.POPULAR.sortType,
                 Const.SITE_NAME_STACKOVERFLOW)

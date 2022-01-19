@@ -61,7 +61,7 @@
                 android:layout_marginTop="@dimen/margin_20"
                 android:textSize="@dimen/text_size_18"
                 android:fontFamily="@font/quicksand"
-                android:textColor="@color/white"/>
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/user_detail_top_tags_label"
@@ -137,7 +137,7 @@
                 android:layout_marginTop="@dimen/margin_20"
                 android:textSize="@dimen/text_size_18"
                 android:fontFamily="@font/quicksand"
-                android:textColor="@color/white"/>
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/user_detail_badges_silver_label"
@@ -163,7 +163,7 @@
                 android:layout_marginTop="@dimen/margin_20"
                 android:textSize="@dimen/text_size_18"
                 android:fontFamily="@font/quicksand"
-                android:textColor="@color/white"/>
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/user_detail_badges_bronze_label"
@@ -189,7 +189,7 @@
                 android:layout_marginTop="@dimen/margin_20"
                 android:textSize="@dimen/text_size_18"
                 android:fontFamily="@font/quicksand"
-                android:textColor="@color/white"/>
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/user_detail_location_label"
@@ -215,7 +215,7 @@
                 android:layout_marginTop="@dimen/margin_20"
                 android:textSize="@dimen/text_size_18"
                 android:fontFamily="@font/quicksand"
-                android:textColor="@color/white"/>
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/user_detail_creation_date_label"
@@ -242,7 +242,7 @@
                 android:layout_marginTop="@dimen/margin_20"
                 android:textSize="@dimen/text_size_18"
                 android:fontFamily="@font/quicksand"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingBottom="@dimen/padding_5"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
