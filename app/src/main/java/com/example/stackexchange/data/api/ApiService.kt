@@ -16,7 +16,7 @@ interface ApiService {
     suspend fun getUsers(@Query(ORDER_BY) orderBy: String,
                          @Query(SORT_BY) sortBy: String,
                          @Query(INNAME) name: String,
-                         @Query(SITE) site: String,): Response<com.example.stackexchange.data.model.UsersResponse>
+                         @Query(SITE) site: String): Response<com.example.stackexchange.data.model.UsersResponse>
 
     @GET(TAGS)
     suspend fun getTags(@Query(ORDER_BY) orderBy: String,

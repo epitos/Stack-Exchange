@@ -6,19 +6,22 @@ import com.example.stackexchange.data.model.Item
 import com.example.stackexchange.data.model.TagsResponse
 import com.example.stackexchange.data.model.UsersResponse
 import com.example.stackexchange.data.repository.StackExchangeRepository
+import com.example.stackexchange.ui.adapter.TagsAdapter
 import com.example.stackexchange.utils.Const
 import com.example.stackexchange.utils.Sort
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito.doReturn
-import org.mockito.Mockito.verify
+import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnitRunner
+import org.mockito.stubbing.OngoingStubbing
+import retrofit2.Response
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
@@ -41,13 +44,18 @@ class StackExchangeRepositoryTest {
     }
 
     @Test
-    fun getUsersApiResponse() {
+    fun getUsersApiSuccessResponse() {
         val name = "John"
 
         testCoroutineRule.runBlockingTest {
 
-            repository.getUsers(Const.ORDER_BY_OPTION_ASC, Sort.NAME.sortType, name,
-                Const.SITE_NAME_STACKOVERFLOW)
+            val response: Response<UsersResponse> = Response.success(UsersResponse())
+
+            `when`(apiService.getUsers(Const.ORDER_BY_OPTION_ASC, Sort.NAME.sortType, name,
+                Const.SITE_NAME_STACKOVERFLOW)).thenReturn(response)
+
+            assertEquals(response, repository.getUsers(Const.ORDER_BY_OPTION_ASC, Sort.NAME.sortType,
+                name, Const.SITE_NAME_STACKOVERFLOW))
 
             verify(apiService).getUsers(
                 Const.ORDER_BY_OPTION_ASC, Sort.NAME.sortType, name,
@@ -56,14 +64,21 @@ class StackExchangeRepositoryTest {
     }
 
     @Test
-    fun getTagsApiResponse() {
+    fun getTagsApiSuccessResponse() {
         testCoroutineRule.runBlockingTest {
 
-            repository.getTags(Const.ORDER_BY_OPTION_ASC, Sort.POPULAR.sortType,
-                Const.SITE_NAME_STACKOVERFLOW)
+            val response: Response<TagsResponse> = Response.success(TagsResponse())
+
+            `when`(apiService.getTags(Const.ORDER_BY_OPTION_ASC,
+                Sort.NAME.sortType, Const.SITE_NAME_STACKOVERFLOW)).thenReturn(response)
+
+            assertEquals(response, repository.getTags(Const.ORDER_BY_OPTION_ASC,
+                Sort.POPULAR.sortType, Const.SITE_NAME_STACKOVERFLOW))
 
             verify(apiService).getTags(
                 Const.ORDER_BY_OPTION_ASC, Sort.POPULAR.sortType,Const.SITE_NAME_STACKOVERFLOW)
         }
     }
 }
+
+
