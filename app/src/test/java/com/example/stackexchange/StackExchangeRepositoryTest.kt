@@ -70,13 +70,13 @@ class StackExchangeRepositoryTest {
             val response: Response<TagsResponse> = Response.success(TagsResponse())
 
             `when`(apiService.getTags(Const.ORDER_BY_OPTION_ASC,
-                Sort.NAME.sortType, Const.SITE_NAME_STACKOVERFLOW)).thenReturn(response)
+                Sort.POPULAR.sortType, Const.SITE_NAME_STACKOVERFLOW)).thenReturn(response)
 
             assertEquals(response, repository.getTags(Const.ORDER_BY_OPTION_ASC,
                 Sort.POPULAR.sortType, Const.SITE_NAME_STACKOVERFLOW))
 
             verify(apiService).getTags(
-                Const.ORDER_BY_OPTION_ASC, Sort.POPULAR.sortType,Const.SITE_NAME_STACKOVERFLOW)
+                Const.ORDER_BY_OPTION_ASC, Sort.POPULAR.sortType, Const.SITE_NAME_STACKOVERFLOW)
         }
     }
 }
